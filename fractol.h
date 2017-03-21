@@ -9,4 +9,76 @@
 
 # include <stdio.h>
 
+# define ESC 53
+# define PLUS 35
+# define MIN 37
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
+# define ENT 36
+# define CLICK_L 1
+# define CLICK_R 2
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+# define TAB 48
+
+
+typedef struct	s_color
+{
+	int		tmp_id;
+	int		id;
+	int		r;
+	int		g;
+	int		b;
+
+}				t_color;
+
+typedef struct	s_point
+{
+	float	x1;
+	float	x2;
+	float	y1;
+	float	y2;
+	float	c_r;
+	float	c_i;
+	float	z_r;
+	float	z_i;
+	int		max_iter;
+	float	scale;
+	float	zoom_x;
+	float	zoom_y;
+}				t_point;
+
+typedef struct	s_env
+{
+	int		win_x;
+	int		win_y;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		bpp;
+	int		sizeline;
+	int		endian;
+	char	*data;
+	int		ftl;
+	t_point	point;
+	t_color	color;
+}				t_env;
+
+void	ft_init_mandelbrot(t_env *e);
+void	ft_mandelbrot(t_env *e, t_point p, int x, int y);
+
+void	ft_init_julia(t_env *e);
+void	ft_julia(t_env *e, t_point p, int x, int y);
+
+void	ft_put_pixel(t_env *e, int x, int y);
+void	ft_color(t_env *e, int x, int y, int i);
+void	ft_draw_fractal(t_env *e);
+
+void	ft_zoom(int keycode, t_env *e);
+void	ft_move(int keycode, t_env *e);
+void	ft_reinit(int keycode, t_env *e);
+void	ft_change_color(int keycode, t_env *e);
+void	ft_create_win(t_env *e);
 #endif
