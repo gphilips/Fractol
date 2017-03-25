@@ -14,9 +14,9 @@ static void	ft_instruction(t_env *e)
 	zoom_in = "Left Click or Scroll Up : Zoom in\n";
 	zoom_out = "Right Click or Scroll Down : Zoom out\n";
 	move = "Arrow keys : Move the map\n";
-	iter_p = "P : Increase the iteration\n";
-	iter_l = "L : Lower the iteration\n";
-	color = "TAB : Change the color \n";
+	iter_p = "P : Increase the iteration (change the foreground color)\n";
+	iter_l = "L : Lower the iteration (change the foreground color)\n";
+	color = "R/G/B : Change the background color \n";
 	mlx_string_put(e->mlx, e->win, 10, 0, 0x00FFFFFF, "COMMANDS");
 	mlx_string_put(e->mlx, e->win, 10, 10, 0x00FFFFFF, line);
 	mlx_string_put(e->mlx, e->win, 10, 30, 0x00FFFFFF, zoom_in);
@@ -42,7 +42,6 @@ static int	ft_mouse_hook(int button, int x, int y, t_env *e)
 {
 	if (button == CLICK_L || button == SCROLL_UP)
 	{
-		e->point.max_iter *= 1.1;
 		e->point.zoom_x *= 1.5;
 		e->point.zoom_y *= 1.5;
 		e->point.scale *= 1.5;
@@ -66,15 +65,15 @@ static int	ft_key_hook(int keycode, t_env *e)
 	ft_putchar('\n');
 	if (keycode == ESC)
 		exit(0);
-	if (keycode == PLUS || keycode == MIN)
-		ft_zoom(keycode, e);
+	if (keycode == P || keycode == L)
+		ft_iter(keycode, e);
 	if (keycode == UP || keycode == DOWN
 		|| keycode == LEFT || keycode == RIGHT)
 		ft_move(keycode, e);
 	if (keycode == ENT)
 		ft_reinit(keycode, e);
-	if (keycode == TAB)
-		ft_change_color(keycode, e);
+	if (keycode == R || keycode == G || keycode == B)
+		ft_change_rgb(keycode, e);
 	ft_expose_hook(e);
 	return (0);
 }

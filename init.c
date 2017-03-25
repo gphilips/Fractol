@@ -7,8 +7,6 @@ static void		ft_init_all(t_env *e)
 	e->mlx = NULL;
 	e->win = NULL;
 	e->img = NULL;
-	e->color.tmp_id = 0;
-	e->color.id = e->color.tmp_id % 3;
 	e->color.r = 0;
 	e->color.g = 0;
 	e->color.b = 0;

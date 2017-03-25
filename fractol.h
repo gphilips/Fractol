@@ -10,8 +10,8 @@
 # include <stdio.h>
 
 # define ESC 53
-# define PLUS 35
-# define MIN 37
+# define P 35
+# define L 37
 # define UP 126
 # define DOWN 125
 # define LEFT 123
@@ -21,13 +21,13 @@
 # define CLICK_R 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-# define TAB 48
+# define R 15
+# define G 5
+# define B 11
 
 
 typedef struct	s_color
 {
-	int		tmp_id;
-	int		id;
 	int		r;
 	int		g;
 	int		b;
@@ -72,13 +72,13 @@ void	ft_mandelbrot(t_env *e, t_point p, int x, int y);
 void	ft_init_julia(t_env *e);
 void	ft_julia(t_env *e, t_point p, int x, int y);
 
-void	ft_put_pixel(t_env *e, int x, int y);
-void	ft_color(t_env *e, int x, int y, int i);
+void	ft_put_pixel(t_env *e, int x, int y, int color);
+void	ft_change_color(t_env *e, int x, int y, int i);
 void	ft_draw_fractal(t_env *e);
 
-void	ft_zoom(int keycode, t_env *e);
+void	ft_iter(int keycode, t_env *e);
 void	ft_move(int keycode, t_env *e);
 void	ft_reinit(int keycode, t_env *e);
-void	ft_change_color(int keycode, t_env *e);
+void	ft_change_rgb(int keycode, t_env *e);
 void	ft_create_win(t_env *e);
 #endif

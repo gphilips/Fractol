@@ -16,7 +16,7 @@ void	ft_mandelbrot(t_env *e, t_point p, int x, int y)
 		p.z_r = p.z_r * p.z_r - p.z_i * p.z_i + p.c_r;
 		p.z_i = (2 * tmp * p.z_i) + p.c_i;
 	}
-	ft_color(e, x, y, i);
+	ft_change_color(e, x, y, i);
 }
 
 void	ft_julia(t_env *e, t_point p, int x, int y)
@@ -35,5 +35,5 @@ void	ft_julia(t_env *e, t_point p, int x, int y)
 		p.z_r = p.z_r * p.z_r - p.z_i * p.z_i + p.c_r;
 		p.z_i = (2 * tmp * p.z_i) + p.c_i;
 	}
-	ft_color(e, x, y, i);
+	ft_change_color(e, x, y, i);
 }

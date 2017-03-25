@@ -1,10 +1,10 @@
 #include "fractol.h"
 
-void	ft_zoom(int keycode, t_env *e)
+void	ft_iter(int keycode, t_env *e)
 {
-	if (keycode == PLUS)
+	if (keycode == P)
 		e->point.max_iter *= 1.1;
-	else if (keycode == MIN)
+	else if (keycode == L && e->point.max_iter > 100)
 		e->point.max_iter /= 1.1;
 }
 
@@ -35,15 +35,27 @@ void	ft_move(int keycode, t_env *e)
 void	ft_reinit(int keycode, t_env *e)
 {
 	if (keycode == ENT && e->ftl == 1)
+	{
 		ft_init_mandelbrot(e);
+		e->color.r = 10;
+		e->color.g = 10;
+		e->color.b = 10;
+	}
 	else if (keycode == ENT && e->ftl == 2)
+	{
 		ft_init_julia(e);
+		e->color.r = 10;
+		e->color.g = 10;
+		e->color.b = 10;
+	}
 }
 
-void	ft_change_color(int keycode, t_env *e)
+void	ft_change_rgb(int keycode, t_env *e)
 {
-	if (keycode == TAB && e->color.id != 2)
-		e->color.id += 1;
-	else
-		e->color.id = 0;
+	if (keycode == R)
+		e->color.r += 10;
+	else if (keycode == G)
+		e->color.g += 10;
+	else if (keycode == B)
+		e->color.b += 10;
 }

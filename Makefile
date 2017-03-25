@@ -12,7 +12,7 @@
 
 NAME = fractol
 
-SRC = init.c colors.c fractals.c draw.c event.c create_win.c main.c
+SRC = init.c  fractals.c draw.c event.c create_win.c main.c
 CFLAGS = -Wall -Werror -Wextra
 MLX = -lmlx -framework OpenGL -framework AppKit
 LIBDIR = libft/
