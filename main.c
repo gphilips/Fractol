@@ -2,7 +2,10 @@
 
 static int	ft_error(void)
 {
-	ft_putendl_fd("usage: ./fractol <fractal's name>\nUse 'mandelbrot' or 'julia'", 2);
+	char *text;
+
+	text = "usage : ./fractol <fractal's name>\nYou can use :\n- mandelbrot\n- julia\n- burninship";
+	ft_putendl_fd(text, 2);
 	return (-1);
 }
 
@@ -17,9 +20,10 @@ int		main(int argc, char **argv)
 		ft_init_mandelbrot(e);
 	else if (ft_strcmp(argv[1], "julia") == 0)
 		ft_init_julia(e);
+	else if (ft_strcmp(argv[1], "burningship") == 0)
+		ft_init_burningship(e);
 	else
 		return (ft_error());
 	ft_create_win(e);
-	free(e);
 	return (0);
 }

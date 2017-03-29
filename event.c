@@ -34,16 +34,23 @@ void	ft_move(int keycode, t_env *e)
 
 void	ft_reinit(int keycode, t_env *e)
 {
-	if (keycode == ENT && e->ftl == 1)
+	if (keycode == ENT && e->ftl == 0)
 	{
 		ft_init_mandelbrot(e);
 		e->color.r = 10;
 		e->color.g = 10;
 		e->color.b = 10;
 	}
-	else if (keycode == ENT && e->ftl == 2)
+	else if (keycode == ENT && e->ftl == 1)
 	{
 		ft_init_julia(e);
+		e->color.r = 10;
+		e->color.g = 10;
+		e->color.b = 10;
+	}
+	else if (keycode == ENT && e->ftl == 2)
+	{
+		ft_init_burningship(e);
 		e->color.r = 10;
 		e->color.g = 10;
 		e->color.b = 10;
@@ -58,4 +65,12 @@ void	ft_change_rgb(int keycode, t_env *e)
 		e->color.g += 10;
 	else if (keycode == B)
 		e->color.b += 10;
+}
+
+void	ft_change_ftl(int keycode, t_env *e)
+{
+	if (keycode == TAB && e->ftl < 2)
+		e->ftl += 1;
+	else
+		e->ftl = 0;
 }

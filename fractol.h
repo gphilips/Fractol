@@ -6,8 +6,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <mlx.h>
-
-# include <stdio.h>
+# include <math.h>
 
 # define ESC 53
 # define P 35
@@ -24,6 +23,11 @@
 # define R 15
 # define G 5
 # define B 11
+# define TAB 48
+# define KEYPRESS 2
+# define KEYPRESSMASK (1L<<2)
+# define MOTIONNOTIFY 6
+# define POINTERMOTIONMASK (1L<<6)
 
 
 typedef struct	s_color
@@ -72,6 +76,9 @@ void	ft_mandelbrot(t_env *e, t_point p, int x, int y);
 void	ft_init_julia(t_env *e);
 void	ft_julia(t_env *e, t_point p, int x, int y);
 
+void	ft_init_burningship(t_env *e);
+void	ft_burningship(t_env *e, t_point p, int x, int y);
+
 void	ft_put_pixel(t_env *e, int x, int y, int color);
 void	ft_change_color(t_env *e, int x, int y, int i);
 void	ft_draw_fractal(t_env *e);
@@ -80,5 +87,9 @@ void	ft_iter(int keycode, t_env *e);
 void	ft_move(int keycode, t_env *e);
 void	ft_reinit(int keycode, t_env *e);
 void	ft_change_rgb(int keycode, t_env *e);
+void	ft_change_ftl(int keycode, t_env *e);
+int		ft_move_mouse(int x, int y, t_env *e);
+int		ft_mouse_hook(int button, int x, int y, t_env *e);
+int		ft_expose_hook(t_env *e);
 void	ft_create_win(t_env *e);
 #endif

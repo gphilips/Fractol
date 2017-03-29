@@ -32,10 +32,12 @@ void		ft_draw_fractal(t_env *e)
 		x = -1;
 		while (++x < e->win_x)
 		{
-			if (e->ftl == 1)
+			if (e->ftl == 0)
 				ft_mandelbrot(e, e->point, x, y);
-			if (e->ftl == 2)
+			if (e->ftl == 1)
 				ft_julia(e, e->point, x, y);
+			if (e->ftl == 2)
+				ft_burningship(e, e->point, x, y);
 		}
 	}
 }
