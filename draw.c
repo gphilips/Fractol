@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 16:21:37 by gphilips          #+#    #+#             */
+/*   Updated: 2017/03/29 16:21:54 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void		ft_put_pixel(t_env *e, int x, int y, int iter)
 {
 	int		i;
-	
+
 	if ((x > 0 && x < e->win_x) && (y > 0 && y < e->win_y))
 	{
 		i = (y * e->sizeline) + (x * e->bpp / 8);
 		e->data[i] = e->color.b + iter % 255;
-		e->data[i + 1] = e->color.g + iter % 255; 
+		e->data[i + 1] = e->color.g + iter % 255;
 		e->data[i + 2] = e->color.r + iter % 255;
 	}
 }

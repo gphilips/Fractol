@@ -1,15 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 16:54:09 by gphilips          #+#    #+#             */
+/*   Updated: 2017/03/29 17:10:11 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-static int	ft_error(void)
+static int		ft_error(void)
 {
-	char *text;
+	char	*usage;
+	char	*list;
 
-	text = "usage : ./fractol <fractal's name>\nYou can use :\n- mandelbrot\n- julia\n- burninship";
-	ft_putendl_fd(text, 2);
+	usage = "usage : ./fractol <fractal's name>";
+	list = "You can use :\n- mandelbrot\n- julia\n- burninship";
+	ft_putendl_fd(usage, 2);
+	ft_putendl(list);
 	return (-1);
 }
 
-int		main(int argc, char **argv)
+static void		ft_info(void)
+{
+	ft_putendl(CMD);
+	ft_putendl(LINE);
+	ft_putendl(ZOOM_IN);
+	ft_putendl(ZOOM_OUT);
+	ft_putendl(MOVE);
+	ft_putendl(ITER_P);
+	ft_putendl(ITER_L);
+	ft_putendl(COLOR);
+	ft_putendl(FTL);
+	ft_putendl(REINIT);
+}
+
+int				main(int argc, char **argv)
 {
 	t_env	*e;
 
@@ -24,6 +53,7 @@ int		main(int argc, char **argv)
 		ft_init_burningship(e);
 	else
 		return (ft_error());
+	ft_info();
 	ft_create_win(e);
 	return (0);
 }
