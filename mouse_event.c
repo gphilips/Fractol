@@ -14,8 +14,6 @@
 
 int		ft_mouse_hook(int button, int x, int y, t_env *e)
 {
-	ft_putnbr(button);
-	ft_putchar('\n');
 	if (button == CLICK_L || button == SCROLL_UP)
 	{
 		e->point.zoom_x *= 1.5;
