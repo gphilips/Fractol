@@ -14,7 +14,7 @@ void	ft_mandelbrot(t_env *e, t_point p, int x, int y)
 	{
 		tmp = p.z_r;
 		p.z_r = p.z_r * p.z_r - p.z_i * p.z_i + p.c_r;
-		p.z_i = (2 * tmp * p.z_i) - p.c_i;
+		p.z_i = (2 * tmp * p.z_i) + p.c_i;
 	}
 	ft_change_color(e, x, y, i);
 }

@@ -2,6 +2,8 @@
 
 int		ft_mouse_hook(int button, int x, int y, t_env *e)
 {
+	ft_putnbr(button);
+	ft_putchar('\n');
 	if (button == CLICK_L || button == SCROLL_UP)
 	{
 		e->point.zoom_x *= 1.5;
@@ -10,7 +12,8 @@ int		ft_mouse_hook(int button, int x, int y, t_env *e)
 		e->point.x1 += x / 2 / e->point.zoom_x;
 		e->point.y1 += y / 2 / e->point.zoom_y;
 	}
-	else if (button == CLICK_R || button == SCROLL_DOWN)
+	else if ((button == CLICK_R || button == SCROLL_DOWN)
+			&& (e->point.zoom_x > 100 && e->point.zoom_y > 100))
 	{
 		e->point.zoom_x /= 1.5;
 		e->point.zoom_y /= 1.5;

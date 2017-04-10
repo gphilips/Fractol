@@ -43,11 +43,11 @@ int		ft_expose_hook(t_env *e)
 
 static int	ft_key_hook(int keycode, t_env *e)
 {
-	ft_putstr("key : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
 	if (keycode == ESC)
+	{
+		mlx_destroy_window(e->mlx, e->win);
 		exit(0);
+	}
 	if (keycode == P || keycode == L)
 		ft_iter(keycode, e);
 	if (keycode == UP || keycode == DOWN
