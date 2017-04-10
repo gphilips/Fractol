@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractals.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 17:06:30 by gphilips          #+#    #+#             */
+/*   Updated: 2017/03/29 17:06:41 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	ft_mandelbrot(t_env *e, t_point p, int x, int y)
 {
 	int		i;
 	float	tmp;
-	
+
 	p.c_r = x / p.zoom_x + p.x1;
 	p.c_i = y / p.zoom_y + p.y1;
 	p.z_r = 0;
@@ -23,7 +35,7 @@ void	ft_julia(t_env *e, t_point p, int x, int y)
 {
 	int		i;
 	float	tmp;
-	
+
 	p.z_r = x / p.zoom_x + p.x1;
 	p.z_i = y / p.zoom_y + p.y1;
 	i = -1;
@@ -40,7 +52,7 @@ void	ft_burningship(t_env *e, t_point p, int x, int y)
 {
 	int		i;
 	float	tmp;
-	
+
 	p.c_r = x / p.zoom_x + p.x1;
 	p.c_i = y / p.zoom_y + p.y1;
 	p.z_r = 0;

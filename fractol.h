@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 16:22:31 by gphilips          #+#    #+#             */
+/*   Updated: 2017/03/29 17:04:29 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
@@ -11,10 +23,10 @@
 # define ESC 53
 # define P 35
 # define L 37
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
+# define UP 125
+# define DOWN 126
+# define LEFT 124
+# define RIGHT 123
 # define ENT 36
 # define CLICK_L 1
 # define CLICK_R 2
@@ -29,6 +41,16 @@
 # define MOTIONNOTIFY 6
 # define POINTERMOTIONMASK (1L<<6)
 
+# define CMD "COMMANDS :"
+# define LINE "______________________"
+# define ZOOM_IN "Left Click or Scroll Up : Zoom in"
+# define ZOOM_OUT "Right Click or Scroll Down : Zoom out"
+# define MOVE "Arrow keys : Move the fractal"
+# define ITER_P "P : Increase the precision (change the foreground color)"
+# define ITER_L "L : Lower the precision (change the foreground color)"
+# define COLOR "R/G/B : Change the background color"
+# define FTL "TAB : Change the fractal"
+# define REINIT "Enter : Reinitialise the fractal"
 
 typedef struct	s_color
 {

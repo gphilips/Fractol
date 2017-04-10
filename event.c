@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   event.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/29 17:05:32 by gphilips          #+#    #+#             */
+/*   Updated: 2017/03/29 17:05:54 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	ft_iter(int keycode, t_env *e)
@@ -13,21 +25,21 @@ void	ft_move(int keycode, t_env *e)
 	if (keycode == UP)
 	{
 		e->point.y1 += 0.1 / e->point.scale;
-		e->point.y2 += 0.1 / e->point.scale; 
+		e->point.y2 += 0.1 / e->point.scale;
 	}
 	else if (keycode == DOWN)
 	{
-		e->point.y1 -= 0.1 / e->point.scale; 
-		e->point.y2 -= 0.1 / e->point.scale; 
+		e->point.y1 -= 0.1 / e->point.scale;
+		e->point.y2 -= 0.1 / e->point.scale;
 	}
 	else if (keycode == LEFT)
 	{
-		e->point.x1 += 0.1 / e->point.scale; 
+		e->point.x1 += 0.1 / e->point.scale;
 		e->point.x2 += 0.1 / e->point.scale;
 	}
 	else if (keycode == RIGHT)
 	{
-		e->point.x1 -= 0.1 / e->point.scale; 
+		e->point.x1 -= 0.1 / e->point.scale;
 		e->point.x2 -= 0.1 / e->point.scale;
 	}
 }
