@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:31 by gphilips          #+#    #+#             */
-/*   Updated: 2017/03/29 17:04:29 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:26:46 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,26 +92,26 @@ typedef struct	s_env
 	t_color	color;
 }				t_env;
 
-void	ft_init_mandelbrot(t_env *e);
-void	ft_mandelbrot(t_env *e, t_point p, int x, int y);
+void			ft_init_mandelbrot(t_env *e);
+void			ft_mandelbrot(t_env *e, t_point p, int x, int y);
 
-void	ft_init_julia(t_env *e);
-void	ft_julia(t_env *e, t_point p, int x, int y);
+void			ft_init_julia(t_env *e);
+void			ft_julia(t_env *e, t_point p, int x, int y);
 
-void	ft_init_burningship(t_env *e);
-void	ft_burningship(t_env *e, t_point p, int x, int y);
+void			ft_init_burningship(t_env *e);
+void			ft_burningship(t_env *e, t_point p, int x, int y);
 
-void	ft_put_pixel(t_env *e, int x, int y, int color);
-void	ft_change_color(t_env *e, int x, int y, int i);
-void	ft_draw_fractal(t_env *e);
+void			ft_put_pixel(t_env *e, int x, int y, int color);
+void			ft_change_color(t_env *e, int x, int y, int i);
+void			ft_draw_fractal(t_env *e);
 
-void	ft_iter(int keycode, t_env *e);
-void	ft_move(int keycode, t_env *e);
-void	ft_reinit(int keycode, t_env *e);
-void	ft_change_rgb(int keycode, t_env *e);
-void	ft_change_ftl(int keycode, t_env *e);
-int		ft_move_mouse(int x, int y, t_env *e);
-int		ft_mouse_hook(int button, int x, int y, t_env *e);
-int		ft_expose_hook(t_env *e);
-void	ft_create_win(t_env *e);
+void			ft_iter(int keycode, t_env *e);
+void			ft_move(int keycode, t_env *e);
+void			ft_reinit(int keycode, t_env *e);
+void			ft_change_rgb(int keycode, t_env *e);
+void			ft_change_ftl(int keycode, t_env *e);
+int				ft_move_mouse(int x, int y, t_env *e);
+int				ft_mouse_hook(int button, int x, int y, t_env *e);
+int				ft_expose_hook(t_env *e);
+void			ft_create_win(t_env *e);
 #endif

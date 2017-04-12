@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:05 by gphilips          #+#    #+#             */
-/*   Updated: 2017/03/29 17:07:28 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/12 16:21:56 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void		ft_instruction(t_env *e)
 	mlx_string_put(e->mlx, e->win, 10, 130, 0x00FFFFFF, COLOR);
 	mlx_string_put(e->mlx, e->win, 10, 150, 0x00FFFFFF, FTL);
 	mlx_string_put(e->mlx, e->win, 10, 170, 0x00FFFFFF, REINIT);
-	mlx_string_put(e->mlx, e->win, 10, e->win_y - 50, 0x00FFFFFF, "Zoom :");
+	mlx_string_put(e->mlx, e->win, 10, e->win_y - 50, 0x00FFFFFF, "Zoom:");
 	mlx_string_put(e->mlx, e->win, 130, e->win_y - 50, 0x00FFFFFF, zoom);
-	mlx_string_put(e->mlx, e->win, 10, e->win_y - 30, 0x00FFFFFF, "Iteration :");
+	mlx_string_put(e->mlx, e->win, 10, e->win_y - 30, 0x00FFFFFF, "Iteration:");
 	mlx_string_put(e->mlx, e->win, 130, e->win_y - 30, 0x00FFFFFF, iter);
 	if (e->point.max_iter > 300)
 		mlx_string_put(e->mlx, e->win, 170, e->win_y - 30, 0x00FFFFFF, "MAX!");
