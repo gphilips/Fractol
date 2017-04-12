@@ -12,8 +12,13 @@
 
 #include "fractol.h"
 
-static void	ft_instruction(t_env *e)
+static void		ft_instruction(t_env *e)
 {
+	char	*zoom;
+	char	*iter;
+
+	zoom = ft_itoa(e->point.zoom_x);
+	iter = ft_itoa(e->point.max_iter);
 	mlx_string_put(e->mlx, e->win, 10, 0, 0x00FFFFFF, CMD);
 	mlx_string_put(e->mlx, e->win, 10, 10, 0x00FFFFFF, LINE);
 	mlx_string_put(e->mlx, e->win, 10, 30, 0x00FFFFFF, ZOOM_IN);
@@ -24,9 +29,15 @@ static void	ft_instruction(t_env *e)
 	mlx_string_put(e->mlx, e->win, 10, 130, 0x00FFFFFF, COLOR);
 	mlx_string_put(e->mlx, e->win, 10, 150, 0x00FFFFFF, FTL);
 	mlx_string_put(e->mlx, e->win, 10, 170, 0x00FFFFFF, REINIT);
+	mlx_string_put(e->mlx, e->win, 10, e->win_y - 50, 0x00FFFFFF, "Zoom :");
+	mlx_string_put(e->mlx, e->win, 130, e->win_y - 50, 0x00FFFFFF, zoom);
+	mlx_string_put(e->mlx, e->win, 10, e->win_y - 30, 0x00FFFFFF, "Iteration :");
+	mlx_string_put(e->mlx, e->win, 130, e->win_y - 30, 0x00FFFFFF, iter);
+	if (e->point.max_iter > 300)
+		mlx_string_put(e->mlx, e->win, 170, e->win_y - 30, 0x00FFFFFF, "MAX!");
 }
 
-int			ft_expose_hook(t_env *e)
+int				ft_expose_hook(t_env *e)
 {
 	e->img = mlx_new_image(e->mlx, e->win_x, e->win_y);
 	e->data = mlx_get_data_addr(e->img, &e->bpp, &e->sizeline, &e->endian);
@@ -37,7 +48,7 @@ int			ft_expose_hook(t_env *e)
 	return (0);
 }
 
-static int	ft_key_hook(int keycode, t_env *e)
+static int		ft_key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESC)
 	{
@@ -59,7 +70,7 @@ static int	ft_key_hook(int keycode, t_env *e)
 	return (0);
 }
 
-void		ft_create_win(t_env *e)
+void			ft_create_win(t_env *e)
 {
 	if (!(e->mlx = mlx_init()))
 		ft_putendl_fd("Error minilibx init", 2);

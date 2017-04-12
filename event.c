@@ -14,7 +14,7 @@
 
 void	ft_iter(int keycode, t_env *e)
 {
-	if (keycode == P)
+	if (keycode == P && e->point.max_iter < 300)
 		e->point.max_iter *= 1.1;
 	else if (keycode == L && e->point.max_iter > 100)
 		e->point.max_iter /= 1.1;
