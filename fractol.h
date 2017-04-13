@@ -101,6 +101,9 @@ void	ft_julia(t_env *e, t_point p, int x, int y);
 void	ft_init_burningship(t_env *e);
 void	ft_burningship(t_env *e, t_point p, int x, int y);
 
+void	ft_init_buddhabrot(t_env *e);
+void	ft_buddhabrot(t_env *e, t_point p, int x, int y);
+
 void	ft_put_pixel(t_env *e, int x, int y, int color);
 void	ft_change_color(t_env *e, int x, int y, int i);
 void	ft_draw_fractal(t_env *e);
