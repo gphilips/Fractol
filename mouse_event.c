@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:06:12 by gphilips          #+#    #+#             */
-/*   Updated: 2017/03/29 17:55:27 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 17:30:13 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_mouse_hook(int button, int x, int y, t_env *e)
 
 int		ft_move_mouse(int x, int y, t_env *e)
 {
-	if (e->ftl == 1)
+	if (e->ftl == 1 && e->pause == 0)
 	{
 		e->point.c_r = (float)x / e->win_x;
 		e->point.c_i = (float)y / e->win_y;

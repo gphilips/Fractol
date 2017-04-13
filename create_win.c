@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:05 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/12 16:21:56 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 19:01:37 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ static void		ft_instruction(t_env *e)
 	mlx_string_put(e->mlx, e->win, 10, 30, 0x00FFFFFF, ZOOM_IN);
 	mlx_string_put(e->mlx, e->win, 10, 50, 0x00FFFFFF, ZOOM_OUT);
 	mlx_string_put(e->mlx, e->win, 10, 70, 0x00FFFFFF, MOVE);
-	mlx_string_put(e->mlx, e->win, 10, 90, 0x00FFFFFF, ITER_P);
-	mlx_string_put(e->mlx, e->win, 10, 110, 0x00FFFFFF, ITER_L);
-	mlx_string_put(e->mlx, e->win, 10, 130, 0x00FFFFFF, COLOR);
-	mlx_string_put(e->mlx, e->win, 10, 150, 0x00FFFFFF, FTL);
-	mlx_string_put(e->mlx, e->win, 10, 170, 0x00FFFFFF, REINIT);
+	mlx_string_put(e->mlx, e->win, 10, 90, 0x00FFFFFF, ITER);
+	mlx_string_put(e->mlx, e->win, 10, 110, 0x00FFFFFF, COLOR);
+	mlx_string_put(e->mlx, e->win, 10, 130, 0x00FFFFFF, FTL);
+	mlx_string_put(e->mlx, e->win, 10, 150, 0x00FFFFFF, REINIT);
+	if (e->ftl == 1)
+		mlx_string_put(e->mlx, e->win, 10, 170, 0x00FFFFFF, MAJ);
 	mlx_string_put(e->mlx, e->win, 10, e->win_y - 50, 0x00FFFFFF, "Zoom:");
 	mlx_string_put(e->mlx, e->win, 130, e->win_y - 50, 0x00FFFFFF, zoom);
 	mlx_string_put(e->mlx, e->win, 10, e->win_y - 30, 0x00FFFFFF, "Iteration:");
@@ -65,7 +66,11 @@ static int		ft_key_hook(int keycode, t_env *e)
 	if (keycode == R || keycode == G || keycode == B)
 		ft_change_rgb(keycode, e);
 	if (keycode == TAB)
-		ft_change_ftl(keycode, e);
+		e->ftl = (e->ftl < 2) ? e->ftl + 1 : 0;
+	if (keycode == SHIFT)
+		e->pause = (e->pause == 0) ? 1 : 0;
+	if (keycode == ONE || keycode == TWO || keycode == THREE)
+		ft_change_julia(keycode, e);
 	ft_expose_hook(e);
 	return (0);
 }

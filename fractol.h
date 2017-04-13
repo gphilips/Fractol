@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:31 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/12 18:26:46 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 19:00:05 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@
 # define G 5
 # define B 11
 # define TAB 48
+# define SHIFT 257
+# define ONE 83
+# define TWO 84
+# define THREE 85
 # define KEYPRESS 2
 # define KEYPRESSMASK (1L<<2)
 # define MOTIONNOTIFY 6
@@ -46,11 +50,11 @@
 # define ZOOM_IN "Left Click or Scroll Up : Zoom in"
 # define ZOOM_OUT "Right Click or Scroll Down : Zoom out"
 # define MOVE "Arrow keys : Move the fractal"
-# define ITER_P "P : Increase the precision (change the foreground color)"
-# define ITER_L "L : Lower the precision (change the foreground color)"
+# define ITER "P / L : Increase / lower the precision"
 # define COLOR "R/G/B : Change the background color"
 # define FTL "TAB : Change the fractal"
 # define REINIT "Enter : Reinitialise the fractal"
+# define MAJ "SHIFT : Block the mouse motion"
 
 typedef struct	s_color
 {
@@ -88,6 +92,7 @@ typedef struct	s_env
 	int		endian;
 	char	*data;
 	int		ftl;
+	int		pause;
 	t_point	point;
 	t_color	color;
 }				t_env;
@@ -101,9 +106,6 @@ void			ft_julia(t_env *e, t_point p, int x, int y);
 void			ft_init_burningship(t_env *e);
 void			ft_burningship(t_env *e, t_point p, int x, int y);
 
-void			ft_init_buddhabrot(t_env *e);
-void			ft_buddhabrot(t_env *e, t_point p, int x, int y);
-
 void			ft_put_pixel(t_env *e, int x, int y, int color);
 void			ft_change_color(t_env *e, int x, int y, int i);
 void			ft_draw_fractal(t_env *e);
@@ -112,7 +114,7 @@ void			ft_iter(int keycode, t_env *e);
 void			ft_move(int keycode, t_env *e);
 void			ft_reinit(int keycode, t_env *e);
 void			ft_change_rgb(int keycode, t_env *e);
-void			ft_change_ftl(int keycode, t_env *e);
+void			ft_change_julia(int keycode, t_env *e);
 int				ft_move_mouse(int x, int y, t_env *e);
 int				ft_mouse_hook(int button, int x, int y, t_env *e);
 int				ft_expose_hook(t_env *e);

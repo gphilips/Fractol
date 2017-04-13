@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:21:37 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/12 18:48:09 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 17:12:12 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void		ft_draw_fractal(t_env *e)
 				ft_julia(e, e->point, x, y);
 			if (e->ftl == 2)
 				ft_burningship(e, e->point, x, y);
-			if (e->ftl == 3)
-				ft_buddhabrot(e, e->point, x, y);
 		}
 	}
 }

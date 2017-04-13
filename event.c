@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:05:32 by gphilips          #+#    #+#             */
-/*   Updated: 2017/03/29 17:05:54 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 18:59:40 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	ft_reinit(int keycode, t_env *e)
 		ft_init_julia(e);
 	else if (keycode == ENT && e->ftl == 2)
 		ft_init_burningship(e);
-	else if (keycode == ENT && e->ftl == 3)
-		ft_init_buddhabrot(e);
 }
 
 void	ft_change_rgb(int keycode, t_env *e)
@@ -66,10 +64,25 @@ void	ft_change_rgb(int keycode, t_env *e)
 		e->color.b += 10;
 }
 
-void	ft_change_ftl(int keycode, t_env *e)
+void	ft_change_julia(int keycode, t_env *e)
 {
-	if (keycode == TAB && e->ftl < 3)
-		e->ftl += 1;
-	else
-		e->ftl = 0;
+	if (e->ftl == 1)
+	{
+		if (keycode == ONE)
+		{
+			e->point.c_r = 0.285;
+			e->point.c_i = 0.01;
+		}
+		if (keycode == TWO)
+		{
+			e->point.c_r = -1.147022285618;
+			e->point.c_i = 0;
+		}
+		if (keycode == THREE)
+		{
+			e->point.c_r = -0.038088;
+			e->point.c_i = 0.97;
+		}
+	}
+
 }

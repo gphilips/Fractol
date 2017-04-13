@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:54:09 by gphilips          #+#    #+#             */
-/*   Updated: 2017/03/29 17:10:11 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/04/13 17:37:39 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		ft_error(void)
 	char	*list;
 
 	usage = "usage : ./fractol <fractal's name>";
-	list = "You can use :\n- mandelbrot\n- julia\n- burninship\n- buddhabrot";
+	list = "You can use :\n- mandelbrot\n- julia\n- burninship\n";
 	ft_putendl_fd(usage, 2);
 	ft_putendl(list);
 	return (-1);
@@ -31,11 +31,11 @@ static void		ft_info(void)
 	ft_putendl(ZOOM_IN);
 	ft_putendl(ZOOM_OUT);
 	ft_putendl(MOVE);
-	ft_putendl(ITER_P);
-	ft_putendl(ITER_L);
+	ft_putendl(ITER);
 	ft_putendl(COLOR);
 	ft_putendl(FTL);
 	ft_putendl(REINIT);
+	ft_putendl(MAJ);
 }
 
 int				main(int argc, char **argv)
@@ -51,8 +51,6 @@ int				main(int argc, char **argv)
 		ft_init_julia(e);
 	else if (ft_strcmp(argv[1], "burningship") == 0)
 		ft_init_burningship(e);
-	else if (ft_strcmp(argv[1], "buddhabrot") == 0)
-		ft_init_buddhabrot(e);
 	else
 		return (ft_error());
 	ft_info();
