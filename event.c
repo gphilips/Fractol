@@ -52,6 +52,8 @@ void	ft_reinit(int keycode, t_env *e)
 		ft_init_julia(e);
 	else if (keycode == ENT && e->ftl == 2)
 		ft_init_burningship(e);
+	if (keycode == ENT && e->ftl == 3)
+		ft_init_tricorn(e);
 }
 
 void	ft_change_rgb(int keycode, t_env *e)

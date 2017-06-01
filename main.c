@@ -18,7 +18,7 @@ static int		ft_error(void)
 	char	*list;
 
 	usage = "usage : ./fractol <fractal's name>";
-	list = "You can use :\n- mandelbrot\n- julia\n- burninship\n";
+	list = "You can use :\n- mandelbrot\n- julia\n- burningship\n- tricorn\n";
 	ft_putendl_fd(usage, 2);
 	ft_putendl(list);
 	return (-1);
@@ -51,6 +51,8 @@ int				main(int argc, char **argv)
 		ft_init_julia(e);
 	else if (ft_strcmp(argv[1], "burningship") == 0)
 		ft_init_burningship(e);
+	else if (ft_strcmp(argv[1], "tricorn") == 0)
+		ft_init_tricorn(e);
 	else
 		return (ft_error());
 	ft_info();

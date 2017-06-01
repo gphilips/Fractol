@@ -28,6 +28,8 @@ int		ft_mouse_hook(int button, int x, int y, t_env *e)
 		e->point.zoom_x /= 1.5;
 		e->point.zoom_y /= 1.5;
 		e->point.scale /= 1.5;
+		e->point.x1 -= x / 3 / e->point.zoom_x;
+		e->point.y1 -= y / 3 / e->point.zoom_y;
 	}
 	ft_expose_hook(e);
 	return (0);

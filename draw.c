@@ -25,14 +25,6 @@ void		ft_put_pixel(t_env *e, int x, int y, int iter)
 	}
 }
 
-void		ft_change_color(t_env *e, int x, int y, int i)
-{
-	if (i == e->point.max_iter)
-		ft_put_pixel(e, x, y, i);
-	else
-		ft_put_pixel(e, x, y, i + e->point.max_iter);
-}
-
 void		ft_draw_fractal(t_env *e)
 {
 	int		x;
@@ -50,6 +42,8 @@ void		ft_draw_fractal(t_env *e)
 				ft_julia(e, e->point, x, y);
 			if (e->ftl == 2)
 				ft_burningship(e, e->point, x, y);
+			if (e->ftl == 3)
+				ft_tricorn(e, e->point, x, y);
 		}
 	}
 }

@@ -38,6 +38,13 @@ static void		ft_instruction(t_env *e)
 		mlx_string_put(e->mlx, e->win, 170, e->win_y - 30, 0x00FFFFFF, "MAX!");
 }
 
+static int 		ft_quit(t_env *e)
+{
+	mlx_destroy_window(e->mlx, e->win);
+	free(e);
+	exit(0);
+}
+
 int				ft_expose_hook(t_env *e)
 {
 	e->img = mlx_new_image(e->mlx, e->win_x, e->win_y);
@@ -52,10 +59,7 @@ int				ft_expose_hook(t_env *e)
 static int		ft_key_hook(int keycode, t_env *e)
 {
 	if (keycode == ESC)
-	{
-		mlx_destroy_window(e->mlx, e->win);
-		exit(0);
-	}
+		ft_quit(e);
 	if (keycode == P || keycode == L)
 		ft_iter(keycode, e);
 	if (keycode == UP || keycode == DOWN
@@ -66,7 +70,7 @@ static int		ft_key_hook(int keycode, t_env *e)
 	if (keycode == R || keycode == G || keycode == B)
 		ft_change_rgb(keycode, e);
 	if (keycode == TAB)
-		e->ftl = (e->ftl < 2) ? e->ftl + 1 : 0;
+		e->ftl = (e->ftl < 3) ? e->ftl + 1 : 0;
 	if (keycode == SHIFT)
 		e->pause = (e->pause == 0) ? 1 : 0;
 	if (keycode == ONE || keycode == TWO || keycode == THREE)
@@ -80,6 +84,7 @@ void			ft_create_win(t_env *e)
 	if (!(e->mlx = mlx_init()))
 		ft_putendl_fd("Error minilibx init", 2);
 	e->win = mlx_new_window(e->mlx, e->win_x, e->win_y, "Fractol");
+	mlx_hook(e->win, CLOSE, CLOSEMASK, ft_quit, e);
 	mlx_hook(e->win, KEYPRESS, KEYPRESSMASK, ft_key_hook, e);
 	mlx_mouse_hook(e->win, ft_mouse_hook, e);
 	mlx_hook(e->win, MOTIONNOTIFY, POINTERMOTIONMASK, ft_move_mouse, e);

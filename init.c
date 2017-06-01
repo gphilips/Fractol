@@ -71,3 +71,19 @@ void			ft_init_burningship(t_env *e)
 	e->point.zoom_x = e->win_x / (e->point.x2 - e->point.x1);
 	e->point.zoom_y = e->win_y / (e->point.y2 - e->point.y1);
 }
+
+
+void			ft_init_tricorn(t_env *e)
+{
+	if (!e->mlx && !e->win && !e->img)
+		ft_init_all(e);
+	e->ftl = 3;
+	e->point.x1 = -1.7;
+	e->point.x2 = 1.7;
+	e->point.y1 = -1.2;
+	e->point.y2 = 1.2;
+	e->point.max_iter = 100;
+	e->point.scale = 1;
+	e->point.zoom_x = e->win_x / (e->point.x2 - e->point.x1);
+	e->point.zoom_y = e->win_y / (e->point.y2 - e->point.y1);
+}
