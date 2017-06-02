@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:31 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/13 19:00:05 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/06/02 15:01:34 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 # define FTL "TAB : Change the fractal"
 # define REINIT "Enter : Reinitialise the fractal"
 # define MAJ "SHIFT : Block the mouse motion"
+# define CHANGE "1/2/3 : Change the form of julia"
 
 typedef struct	s_color
 {

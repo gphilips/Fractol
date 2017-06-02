@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:06:01 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/13 17:20:24 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/06/02 14:52:52 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void			ft_init_burningship(t_env *e)
 	e->point.zoom_x = e->win_x / (e->point.x2 - e->point.x1);
 	e->point.zoom_y = e->win_y / (e->point.y2 - e->point.y1);
 }
-
 
 void			ft_init_tricorn(t_env *e)
 {

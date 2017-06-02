@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:54:09 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/13 17:37:39 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/06/02 15:05:57 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static int		ft_error(void)
 	char	*list;
 
 	usage = "usage : ./fractol <fractal's name>";
-	list = "You can use :\n- mandelbrot\n- julia\n- burningship\n- tricorn\n";
+	list = "You can use :\n- mandelbrot\n- julia\n- burningship\n- tricorn";
 	ft_putendl_fd(usage, 2);
 	ft_putendl(list);
 	return (-1);
 }
 
-static void		ft_info(void)
+static void		ft_info(t_env *e)
 {
 	ft_putendl(CMD);
 	ft_putendl(LINE);
@@ -35,7 +35,11 @@ static void		ft_info(void)
 	ft_putendl(COLOR);
 	ft_putendl(FTL);
 	ft_putendl(REINIT);
-	ft_putendl(MAJ);
+	if (e->ftl == 1)
+	{
+		ft_putendl(MAJ);
+		ft_putendl(CHANGE);
+	}
 }
 
 int				main(int argc, char **argv)
@@ -55,7 +59,7 @@ int				main(int argc, char **argv)
 		ft_init_tricorn(e);
 	else
 		return (ft_error());
-	ft_info();
+	ft_info(e);
 	ft_create_win(e);
 	return (0);
 }

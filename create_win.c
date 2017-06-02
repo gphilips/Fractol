@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:05 by gphilips          #+#    #+#             */
-/*   Updated: 2017/04/13 19:01:37 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/06/02 15:01:54 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static void		ft_instruction(t_env *e)
 	mlx_string_put(e->mlx, e->win, 10, 130, 0x00FFFFFF, FTL);
 	mlx_string_put(e->mlx, e->win, 10, 150, 0x00FFFFFF, REINIT);
 	if (e->ftl == 1)
+	{
 		mlx_string_put(e->mlx, e->win, 10, 170, 0x00FFFFFF, MAJ);
+		mlx_string_put(e->mlx, e->win, 10, 190, 0x00FFFFFF, CHANGE);
+	}
 	mlx_string_put(e->mlx, e->win, 10, e->win_y - 50, 0x00FFFFFF, "Zoom:");
 	mlx_string_put(e->mlx, e->win, 130, e->win_y - 50, 0x00FFFFFF, zoom);
 	mlx_string_put(e->mlx, e->win, 10, e->win_y - 30, 0x00FFFFFF, "Iteration:");
@@ -38,7 +41,7 @@ static void		ft_instruction(t_env *e)
 		mlx_string_put(e->mlx, e->win, 170, e->win_y - 30, 0x00FFFFFF, "MAX!");
 }
 
-static int 		ft_quit(t_env *e)
+static int		ft_quit(t_env *e)
 {
 	mlx_destroy_window(e->mlx, e->win);
 	free(e);
