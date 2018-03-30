@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:05 by gphilips          #+#    #+#             */
-/*   Updated: 2017/06/02 15:01:54 by gphilips         ###   ########.fr       */
+/*   Updated: 2018/03/30 18:05:27 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void		ft_instruction(t_env *e)
 	mlx_string_put(e->mlx, e->win, 130, e->win_y - 30, 0x00FFFFFF, iter);
 	if (e->point.max_iter > 300)
 		mlx_string_put(e->mlx, e->win, 170, e->win_y - 30, 0x00FFFFFF, "MAX!");
+	free(zoom);
+	free(iter);
 }
 
 static int		ft_quit(t_env *e)
