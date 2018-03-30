@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:22:05 by gphilips          #+#    #+#             */
-/*   Updated: 2018/03/30 18:05:27 by gphilips         ###   ########.fr       */
+/*   Updated: 2018/03/30 18:31:31 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static void		ft_instruction(t_env *e)
 
 	zoom = ft_itoa(e->point.zoom_x);
 	iter = ft_itoa(e->point.max_iter);
-	mlx_string_put(e->mlx, e->win, 10, 0, 0x00FFFFFF, CMD);
-	mlx_string_put(e->mlx, e->win, 10, 10, 0x00FFFFFF, LINE);
 	mlx_string_put(e->mlx, e->win, 10, 30, 0x00FFFFFF, ZOOM_IN);
 	mlx_string_put(e->mlx, e->win, 10, 50, 0x00FFFFFF, ZOOM_OUT);
 	mlx_string_put(e->mlx, e->win, 10, 70, 0x00FFFFFF, MOVE);
